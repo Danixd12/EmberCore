@@ -74,7 +74,7 @@ public class joinEvent implements Listener {
         createScoreboard(p);
         
         // inventory
-        enderPearl.onJoin_ender(p);
+       // enderPearl.onJoin_ender(p);
         selector.onJoin_selector(p);
 
         

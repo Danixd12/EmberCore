@@ -13,11 +13,11 @@ public class selector implements Listener {
 	 public static void onJoin_selector(Player p) {
 		 
 	     //INVENTORY
-
+           
 			PlayerInventory pi = p.getInventory();
 			
 
-			ItemStack star = new ItemStack(Material.NETHER_STAR);
+			ItemStack star = new ItemStack(Material.NETHER_STAR, 1);
 			ItemMeta meta_star = star.getItemMeta();
 
 			meta_star.setDisplayName(ChatColor.YELLOW + "Selector");
@@ -34,9 +34,11 @@ public class selector implements Listener {
 			 
 		     //INVENTORY
 				PlayerInventory pi = p.getInventory();
-				ItemStack star = new ItemStack(Material.NETHER_STAR);
-
-			    pi.removeItem(star);
+			
+				ItemStack star = new ItemStack(Material.NETHER_STAR, 2);
+				
+			    
+				pi.removeItem(star);
 			 
 			 }
 }
