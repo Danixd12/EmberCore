@@ -1,0 +1,36 @@
+name: ClypCore
+version: ${project.version}
+main: d.studio.test.Core
+api-version: 1.16
+authors: [ DaniCraftingYT ]
+commands:
+  fly:
+    description: Permite volar
+  gmc:
+    description: Cambiar a creativo
+    aliases:
+      - gamemode_1
+      - gmc
+  gms:
+    description: Cambiar a supervivencia
+    aliases:
+      - gamemode_0
+      - gms
+  gmsp:
+    description: Cambiar a espectador
+    aliases:
+      - gamemode_3
+      - gmsp
+  vanish:
+    description: Añade invisibilidad al jugador
+    aliases:
+      - v
+  core-reload:
+    description: Recarga la configuracion
+  broadcast:
+    description: Envia un mensaje global.
+    aliases:
+      - bc
+      - announcement
+  scoreboard-disable:
+    description: Elimina la scoreboard
