@@ -17,7 +17,7 @@ public class selector implements Listener {
 			PlayerInventory pi = p.getInventory();
 			
 
-			ItemStack star = new ItemStack(Material.NETHER_STAR, 1);
+			ItemStack star = new ItemStack(Material.NETHER_STAR, 0);
 			ItemMeta meta_star = star.getItemMeta();
 
 			meta_star.setDisplayName(ChatColor.YELLOW + "Selector");

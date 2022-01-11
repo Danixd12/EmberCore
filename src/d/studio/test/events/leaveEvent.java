@@ -21,6 +21,6 @@ public class leaveEvent implements Listener {
     
     // inventory
     enderPearl.onLeave_ender(p);
-    //selector.onLeave_selector(p);
+    selector.onLeave_selector(p);
     }
 }

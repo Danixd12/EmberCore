@@ -20,7 +20,7 @@ public class enderPearl implements Listener{
 		PlayerInventory pi = p.getInventory();
 		
 
-		ItemStack pearl = new ItemStack(Material.ENDER_PEARL, 1);
+		ItemStack pearl = new ItemStack(Material.ENDER_PEARL, 0);
 		ItemMeta meta_pearl = pearl.getItemMeta();
 
 		meta_pearl.setDisplayName(ChatColor.GREEN + "EnderButt");
@@ -38,7 +38,7 @@ public class enderPearl implements Listener{
 	     //INVENTORY
 
 			PlayerInventory pi = p.getInventory();
-			ItemStack[] pearl = new ItemStack[]{new ItemStack(Material.ENDER_PEARL)};
+			ItemStack[] pearl = new ItemStack[]{new ItemStack(Material.ENDER_PEARL, 2)};
 
 			pi.removeItem(pearl);
 		 

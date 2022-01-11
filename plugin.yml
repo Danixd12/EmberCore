@@ -34,3 +34,5 @@ commands:
       - announcement
   scoreboard-disable:
     description: Elimina la scoreboard
+  gui:
+    description: gui test

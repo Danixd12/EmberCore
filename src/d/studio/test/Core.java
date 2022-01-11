@@ -10,6 +10,8 @@ import d.studio.test.comandos.scoreboardDisable;
 import d.studio.test.comandos.vanish;
 import d.studio.test.events.joinEvent;
 import d.studio.test.events.leaveEvent;
+import d.studio.test.gui.GUICommand;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -53,6 +55,9 @@ public final class Core extends JavaPlugin  implements Listener {
         new scoreboardDisable(this);
         //explosive bow
         //new explosiveBow(this);
+        //gui
+        getCommand("gui").setExecutor(new GUICommand());
+        
         
         // config file
         createCustomConfig();

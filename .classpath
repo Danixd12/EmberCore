@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/danielmairena/Downloads/spigot-1.8.8-R0.1-SNAPSHOT-latest.jar"/>
+	<classpathentry kind="lib" path="/Users/danielmairena/Downloads/BossBarAPI_v2.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

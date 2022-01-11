@@ -3,6 +3,7 @@ package d.studio.test.events;
 
 import d.studio.test.inventory.enderPearl;
 import d.studio.test.inventory.selector;
+import d.studio.test.scoreboard.bossbar_handler;
 import d.studio.test.scoreboard.scoreboard_handler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,7 +15,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.inventivetalent.bossbar.BossBar;
+import org.inventivetalent.bossbar.BossBarAPI;
 
+import java.awt.TextComponent;
 import java.lang.reflect.InvocationTargetException;
 
 
@@ -33,7 +37,7 @@ public class joinEvent implements Listener {
             helper.setSlot(4, "");
             helper.setSlot(3, "&cOnline: &7" + Bukkit.getOnlinePlayers().size() + "/500");
             helper.setSlot(2, "&7&m---------------------------------");
-            helper.setSlot(1, "&7placeholder");
+            helper.setSlot(1, "&7emberpvp.net");
         } else {
             helper.setTitle("&cEmber&4PvP &7(Hub)");
             helper.setSlot(6, "&7&m--------------------------------");
@@ -41,7 +45,7 @@ public class joinEvent implements Listener {
             helper.setSlot(4, "");
             helper.setSlot(3, "&cOnline: &7" + Bukkit.getOnlinePlayers().size() + "/500");
             helper.setSlot(2, "&7&m--------------------------------");
-            helper.setSlot(1, "&7placeholder");
+            helper.setSlot(1, "&7emberpvp.net");
         }
 	}
 	
@@ -54,9 +58,12 @@ public class joinEvent implements Listener {
 			
 			helper.setSlot(4, players);
 		}
+		
+	
+		
 	}
 
-	
+    
 	
     // EVENTOS
     @EventHandler
@@ -74,7 +81,7 @@ public class joinEvent implements Listener {
         createScoreboard(p);
         
         // inventory
-       // enderPearl.onJoin_ender(p);
+        enderPearl.onJoin_ender(p);
         selector.onJoin_selector(p);
 
         
