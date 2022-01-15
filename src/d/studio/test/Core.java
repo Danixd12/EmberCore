@@ -10,7 +10,10 @@ import d.studio.test.comandos.scoreboardDisable;
 import d.studio.test.comandos.vanish;
 import d.studio.test.events.joinEvent;
 import d.studio.test.events.leaveEvent;
+import d.studio.test.events.selectorOpenEvent;
 import d.studio.test.gui.GUICommand;
+import d.studio.test.gui.guiInteractEvent;
+import d.studio.test.inventory.enderPearlEvent;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
@@ -26,96 +29,95 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.File;
 import java.io.IOException;
 
-public final class Core extends JavaPlugin  implements Listener {
-    // imports
-        ConsoleCommandSender consola = Bukkit.getConsoleSender();
+public final class Core extends JavaPlugin implements Listener {
+	// imports
+	ConsoleCommandSender consola = Bukkit.getConsoleSender();
 
-        private static File file;
-        private static FileConfiguration customFile;
+	private static File file;
+	private static FileConfiguration customFile;
 
-        
-    @Override
-    public void onEnable() {
-    	
-        consola.sendMessage("Cargando comando y eventos...");
+	@Override
+	public void onEnable() {
 
-        // fly
-        new fly(this);
-        // gamemode
-        new gamemode_creative(this);
-        new gamemode_survival(this);
-        new gamemode_spectator(this);
-        // vanish
-        new vanish(this);
-        //reload
-        new reload(this);
-        //broadcast
-        new broadcast(this);
-        //disable scoreboard
-        new scoreboardDisable(this);
-        //explosive bow
-        //new explosiveBow(this);
-        //gui
-        getCommand("gui").setExecutor(new GUICommand());
-        
-        
-        // config file
-        createCustomConfig();
+		consola.sendMessage("Cargando comando y eventos...");
 
-        // eventos
-        PluginManager pl = getServer().getPluginManager();
+		// fly
+		new fly(this);
+		// gamemode
+		new gamemode_creative(this);
+		new gamemode_survival(this);
+		new gamemode_spectator(this);
+		// vanish
+		new vanish(this);
+		// reload
+		new reload(this);
+		// broadcast
+		new broadcast(this);
+		// disable scoreboard
+		new scoreboardDisable(this);
+		// explosive bow
+		// new explosiveBow(this);
+		// gui
+		getCommand("gui").setExecutor(new GUICommand());
 
-        pl.registerEvents(new joinEvent(), this);
-        
-        new BukkitRunnable() {
+		// config file
+		createCustomConfig();
 
-            @Override
-            public void run() {
+		// eventos
+		PluginManager pl = getServer().getPluginManager();
 
-                for(Player player : Bukkit.getOnlinePlayers()) {
-                    // TODO implement scoreboard updater
-                }
+		pl.registerEvents(new joinEvent(), this);
 
-            }
+		new BukkitRunnable() {
 
+			@Override
+			public void run() {
 
-        }.runTaskTimer(this, 20L, 20L);
-        
-        
-        pl.registerEvents(new leaveEvent(), this);
-        
-        consola.sendMessage("Carga completada, plugin habilitado correctamente.");
+				for (Player player : Bukkit.getOnlinePlayers()) {
+					// TODO implement scoreboard updater
+				}
 
-    }
+			}
 
+		}.runTaskTimer(this, 20L, 20L);
 
-    // CONFIG
-    public FileConfiguration getCustomConfig() {
-        return this.customFile;
-    }
+		pl.registerEvents(new leaveEvent(), this);
+		
+		pl.registerEvents(new selectorOpenEvent(), this);
+		pl.registerEvents(new guiInteractEvent(), this);
+		
+		pl.registerEvents(new enderPearlEvent(), this);
+		
+		consola.sendMessage("Carga completada, plugin habilitado correctamente.");
 
-    private void createCustomConfig() {
-        file = new File(getDataFolder(), "config.yml");
-        if (!file.exists()) {
-            file.getParentFile().mkdirs();
-            saveResource("config.yml", false);
-        }
+	}
 
-        customFile = new YamlConfiguration();
-        try {
-            customFile.load(file);
-        } catch (IOException | InvalidConfigurationException e) {
-            e.printStackTrace();
-        }
-    }
+	// CONFIG
+	public FileConfiguration getCustomConfig() {
+		return this.customFile;
+	}
 
-    public void reload(){
-        customFile = YamlConfiguration.loadConfiguration(file);
-    }
+	private void createCustomConfig() {
+		file = new File(getDataFolder(), "config.yml");
+		if (!file.exists()) {
+			file.getParentFile().mkdirs();
+			saveResource("config.yml", false);
+		}
 
+		customFile = new YamlConfiguration();
+		try {
+			customFile.load(file);
+		} catch (IOException | InvalidConfigurationException e) {
+			e.printStackTrace();
+		}
+	}
 
-    @Override
-    public void onDisable() {
-        consola.sendMessage("El plugin se deshabilito");
-    }
+	public void reload() {
+		customFile = YamlConfiguration.loadConfiguration(file);
+	}
+
+	@Override
+	public void onDisable() {
+		consola.sendMessage("El plugin se deshabilito");
+	}
 }

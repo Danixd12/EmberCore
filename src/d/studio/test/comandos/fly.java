@@ -32,16 +32,16 @@ public class fly implements CommandExecutor {
 
                     p.setAllowFlight(false);
                     p.setFlying(false);
-                    utils.message(p, ("&c Fly desactivado."));
+                    utils.message(p, ("&c Fly desactivated."));
 
                 } else {
                     p.setAllowFlight(true);
                     p.setFlying(true);
-                    utils.message(p, ("&e Fly activado."));
+                    utils.message(p, ("&e Fly activated."));
 
                 }
             } else {
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perms.");
             }
         }
         return false;

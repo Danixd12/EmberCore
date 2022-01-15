@@ -32,11 +32,11 @@ public class broadcast implements CommandExecutor {
                 String showMessage = plugin.getCustomConfig().getString("broadcast_prefix") + message;
                 Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', showMessage));
             } else {
-                utils.message(p, "&eDebes especificar el mensaje: /bc <mensaje> .");
+                utils.message(p, "&eYou must specify the mssage: /bc <message> (local) .");
             }
         } else {
 
-            utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+            utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perms.");
         }
 
         return false;

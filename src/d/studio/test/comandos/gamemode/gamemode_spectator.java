@@ -24,9 +24,9 @@ public class gamemode_spectator implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("Core.staff")){
                 p.setGameMode(GameMode.SPECTATOR);
-                utils.message(p,"&a"+plugin.getCustomConfig().getString("prefix")+"Activando el modo espectador.");
+                utils.message(p,"&a"+plugin.getCustomConfig().getString("prefix")+" Enabling spectator mode.");
             } else {
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perm.");
             }
 
         }

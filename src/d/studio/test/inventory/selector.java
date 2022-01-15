@@ -2,8 +2,14 @@ package d.studio.test.inventory;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -17,16 +23,14 @@ public class selector implements Listener {
 			PlayerInventory pi = p.getInventory();
 			
 
-			ItemStack star = new ItemStack(Material.NETHER_STAR, 0);
+			ItemStack star = new ItemStack(Material.NETHER_STAR);
 			ItemMeta meta_star = star.getItemMeta();
-
-			meta_star.setDisplayName(ChatColor.YELLOW + "Selector");
+			
+			meta_star.setDisplayName(ChatColor.YELLOW + "Server Selector");
 			star.setItemMeta(meta_star);
 			
-			p.getPlayer().getInventory().setItem(3, star);
-			pi.addItem(star);
-
-
+			p.getInventory().setItem(3, star);
+			
 		 
 		 }
 		 
@@ -41,4 +45,5 @@ public class selector implements Listener {
 				pi.removeItem(star);
 			 
 			 }
+
 }

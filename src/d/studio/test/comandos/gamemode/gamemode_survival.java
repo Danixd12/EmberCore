@@ -24,9 +24,9 @@ public class gamemode_survival implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("Core.staff")){
                 p.setGameMode(GameMode.SURVIVAL);
-                utils.message(p,"&a"+plugin.getCustomConfig().getString("prefix")+"Activando el modo survival.");
+                utils.message(p,"&a"+plugin.getCustomConfig().getString("prefix")+ " Enabling survival mode.");
             } else {
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perms.");
             }
 
         }

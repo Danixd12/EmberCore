@@ -26,7 +26,7 @@ public class scoreboardDisable implements CommandExecutor {
                 scoreboard_handler helper = scoreboard_handler.getByPlayer(p);
 
                 helper.removeRows(10);
-                utils.message(p, "&aScoreboard ocultada con éxito.");
+                utils.message(p, "&aScoreboard disabled.");
                 
 
         return false;

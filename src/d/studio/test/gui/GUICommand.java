@@ -20,38 +20,43 @@ public class GUICommand implements CommandExecutor {
  
         if(sender instanceof Player){
             Player player = (Player) sender;
-            Inventory gui = Bukkit.createInventory(player, 27, ChatColor.GOLD + "Game Selector");
+            Inventory gui = Bukkit.createInventory(player, 36, ChatColor.GOLD + "Game Selector");
  
             //Menu Options(Items)
-            ItemStack suicide = new ItemStack(Material.TNT); //Kills the player
-            ItemStack feed =  new ItemStack(Material.BREAD); //Fills the hunger bar
-            ItemStack sword = new ItemStack(Material.DIAMOND_SWORD); //Gives the player a weapon
- 
+            ItemStack kits = new ItemStack(Material.WOOL); 
+            ItemStack hcf =  new ItemStack(Material.FISHING_ROD); 
+            ItemStack pract = new ItemStack(Material.DIAMOND_SWORD); 
+            
             //Edit the items
-            ItemMeta suicide_meta = suicide.getItemMeta();
-            suicide_meta.setDisplayName(ChatColor.RED + "Suicide");
-            ArrayList<String> suicide_lore = new ArrayList<>();
-            suicide_lore.add(ChatColor.GOLD + "Kill yourself. ;)");
-            suicide_meta.setLore(suicide_lore);
-            suicide.setItemMeta(suicide_meta);
- 
-            ItemMeta feed_meta = feed.getItemMeta();
-            feed_meta.setDisplayName(ChatColor.DARK_GREEN + "Feed");
-            ArrayList<String> feed_lore = new ArrayList<>();
-            feed_lore.add(ChatColor.GOLD + "Hunger no more.");
-            feed_meta.setLore(feed_lore);
-            feed.setItemMeta(feed_meta);
- 
-            ItemMeta sword_meta = sword.getItemMeta();
-            sword_meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Sword");
-            ArrayList<String> sword_lore = new ArrayList<>();
-            sword_lore.add(ChatColor.GOLD + "Get a sword.");
-            sword_meta.setLore(sword_lore);
-            sword.setItemMeta(sword_meta);
+            ItemMeta kits_meta = kits.getItemMeta();
+            kits_meta.setDisplayName(ChatColor.GOLD + "KitMap");
+            ArrayList<String> kits_lore = new ArrayList<>();
+            kits_lore.add(ChatColor.GRAY + "Left click to connect." + "\n" + ChatColor.GOLD + "*" + ChatColor.GRAY + "Online");
+            kits_meta.setLore(kits_lore);
+            kits.setItemMeta(kits_meta);
+          
+      
+            ItemMeta hcf_meta = hcf.getItemMeta();
+            hcf_meta.setDisplayName(ChatColor.DARK_GREEN + "HCF" + ChatColor.RED + " (Coming Soon)");
+            ArrayList<String> hcf_lore = new ArrayList<>();
+            hcf_lore.add(ChatColor.GRAY + "Left click to connect." + "\n" + ChatColor.GOLD + "*" + ChatColor.GRAY + "Online");
+            hcf_meta.setLore(hcf_lore); 
+            hcf.setItemMeta(hcf_meta);
+            
+            
+            ItemMeta pract_meta = pract.getItemMeta();
+            pract_meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Practice" + ChatColor.RED + " (Coming Soon)");
+            ArrayList<String> pract_lore = new ArrayList<>();
+            pract_lore.add(ChatColor.GRAY + "Left click to connect." + "\n" + ChatColor.GOLD + "*" + ChatColor.GRAY + "Online");
+            pract_meta.setLore(pract_lore);
+            pract.setItemMeta(pract_meta);
  
             //Put the items in the inventory
-            ItemStack[] menu_items = {suicide, feed, sword};
-            gui.setContents(menu_items);
+            ItemStack[] menu_items = {kits, hcf, pract};
+            
+            gui.setItem(14, pract);
+            gui.setItem(12, hcf);
+            gui.setItem(22, kits);
             player.openInventory(gui);
  
  

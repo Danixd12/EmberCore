@@ -7,32 +7,32 @@ commands:
   fly:
     description: Permite volar
   gmc:
-    description: Cambiar a creativo
+    description: Enable creative mode
     aliases:
       - gamemode_1
       - gmc
   gms:
-    description: Cambiar a supervivencia
+    description: Enable survival mode
     aliases:
       - gamemode_0
       - gms
   gmsp:
-    description: Cambiar a espectador
+    description: Enable spectator mode
     aliases:
       - gamemode_3
       - gmsp
   vanish:
-    description: Añade invisibilidad al jugador
+    description: Enable vanish
     aliases:
       - v
   core-reload:
-    description: Recarga la configuracion
+    description: Reload the plugin
   broadcast:
-    description: Envia un mensaje global.
+    description: Send a message to all lobbby's players
     aliases:
       - bc
       - announcement
   scoreboard-disable:
-    description: Elimina la scoreboard
+    description: Remove scoreboard
   gui:
     description: gui test

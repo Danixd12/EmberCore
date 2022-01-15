@@ -29,14 +29,14 @@ public class vanish implements CommandExecutor {
             if (p.hasPermission("Core.staff")) {
                 if (!p.hasPotionEffect(PotionEffectType.INVISIBILITY)){
                     p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY,1000000, 1));
-                    utils.message(p, (plugin.getCustomConfig().getString("prefix")+"&e Activando invisibilidad."));
+                    utils.message(p, (plugin.getCustomConfig().getString("prefix")+"&e Vanish activated."));
                 } else {
                     p.removePotionEffect(PotionEffectType.INVISIBILITY);
-                    utils.message(p, ("&c Desactivando invisibilidad."));
+                    utils.message(p, ("&c Vanish desactivated."));
                 }
 
             } else {
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perms.");
             }
         }
         return false;

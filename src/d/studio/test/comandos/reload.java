@@ -25,9 +25,9 @@ public class reload implements CommandExecutor {
 
             if(p.hasPermission("Core.reload")) {
                 plugin.reload();;
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&aRecargando config.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&aReloading plugin.");
             } else {
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perms.");
             }
 
 

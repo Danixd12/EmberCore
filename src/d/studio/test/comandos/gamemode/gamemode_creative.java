@@ -31,9 +31,9 @@ public class gamemode_creative implements CommandExecutor {
             	
             	
                 p.setGameMode(GameMode.CREATIVE);
-                utils.message(p, "&a"+plugin.getCustomConfig().getString("prefix")+" activando el modo creativo.");
+                utils.message(p, "&a"+plugin.getCustomConfig().getString("prefix")+" Enabling creative mode.");
             } else {
-                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo tienes permisos para ejecutar el comando.");
+                utils.message(p, plugin.getCustomConfig().getString("prefix")+"&cNo perms.");
             }
 
         }

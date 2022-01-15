@@ -1,23 +1,36 @@
 package d.studio.test.inventory;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.entity.EnderPearl;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class enderPearl implements Listener {
 
-	public static void onJoin_ender(Player p) {
+public class enderPearlEvent implements Listener {
 
-		// INVENTORY
+	@EventHandler
+	public void teleportPearl(ProjectileHitEvent event, Player p) {
 
-		PlayerInventory pi = p.getInventory();
+		if (!(event.getEntity() instanceof EnderPearl)) {
 
+			EnderPearl enderpearl = (EnderPearl) event.getEntity();
+
+			Player player = (Player) enderpearl.getShooter();
+
+			player.teleport(enderpearl.getLocation());
+			
+			p.sendMessage("asd");
+
+		}
+		
 		ItemStack pearl = new ItemStack(Material.ENDER_PEARL);
+
 		ItemMeta meta_pearl = pearl.getItemMeta();
 
 		meta_pearl.setDisplayName(ChatColor.GREEN + "EnderButt");
@@ -27,14 +40,4 @@ public class enderPearl implements Listener {
 
 	}
 
-	public static void onLeave_ender(Player p) {
-
-		// INVENTORY
-
-		PlayerInventory pi = p.getInventory();
-		ItemStack pearl = new ItemStack(Material.NETHER_STAR);
-
-		pi.removeItem(pearl);
-
-	}
 }

@@ -64,7 +64,6 @@ public class joinEvent implements Listener {
 	}
 
     
-	
     // EVENTOS
     @EventHandler
     public void onJoin(PlayerJoinEvent event) throws NoSuchMethodException, NoSuchFieldException, InvocationTargetException, IllegalAccessException {
